@@ -1,21 +1,54 @@
-        <a href="/">Home</a>
-        <a href="/about/">About</a>
-        <a href="/coding">Coding</a>
-        <a href="/photography">Photography</a>
-        <html lang="en">
+---
+import '../styles/global.css'
+import Nav from '../components/Nav.astro'
+
+const pageTitle = 'About'
+const me ={
+    firstName: "Neal",
+    state: "Kentucky",
+    occupation: "Server",
+    hobbies: ["trumpet", "photography", "coding", "dungeons and dragons"]
+}
+
+const skills = ["HTML", "CSS", "JavaScript", "React", "Astro", "Photography", "Trumpet"]
+
+const mood = "motivated"
+const finished = false
+const goal = 2
+
+---
+<html lang="en">
 	<head>
 		<meta charset="utf-8" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
-		<title>About</title>
+		<title>{pageTitle}</title>
+        <style>
+            h1 {
+              color: purple;
+              font-size: 4rem;
+            }
+          </style>
 	</head>
 	<body>
-
+        <Nav />
 		<h1>My Personal Portfolio!</h1>
-        <h1>About me</h1>
-        <h2>And my businesses</h2>
+        <h1>{pageTitle}</h1>
+        <h2>Me and my businesses</h2>
         <p>I am currently a coder and professional photographer!</p>
         <p>I am also a classically trained musician and teacher!</p>
+        <p>Here are some facts about me:</p>
+        <ul>
+            <li>My name is {me.firstName}.</li>
+            <li>I live in {me.state} and I work as a {me.occupation}</li>
+            {me.hobbies.length >= 2 &&
+            <li>Two of my hobbies are: {me.hobbies[0]} and {me.hobbies[1]}</li>
+            }
+        </ul>
+        <p>I'm skilled in:</p>
+        <ul>
+            {skills.map((skill) => <li>{skill}</li>)}
+        </ul>
 	</body>
 </html>
