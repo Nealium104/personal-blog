@@ -1,6 +1,7 @@
 ---
 import '../styles/global.css'
 import Nav from '../components/Nav.astro'
+import Footer from '../components/Footer.astro'
 
 const pageTitle = 'About'
 const me ={
@@ -17,19 +18,13 @@ const finished = false
 const goal = 2
 
 ---
-<html lang="en">
+<html data-theme="mytheme" lang="en">
 	<head>
 		<meta charset="utf-8" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{pageTitle}</title>
-        <style>
-            h1 {
-              color: purple;
-              font-size: 4rem;
-            }
-          </style>
 	</head>
 	<body>
         <Nav />
@@ -50,5 +45,6 @@ const goal = 2
         <ul>
             {skills.map((skill) => <li>{skill}</li>)}
         </ul>
+        <Footer />
 	</body>
 </html>
